@@ -1,5 +1,5 @@
 <div class="col-xs-10 col-xs-offset-1">
-  <%= form_for @question do |q| %>
+  <%= form_for @question, remote: true do |q| %>
     <h5><%= q.label "Question", class: "label label-warning questionLabel" %> <br \></h5>
     <%= q.text_field :question, class: "questionField", id: "questionField" %> <br \>
     <h5><%= q.label "Option One", class: "label label-warning questionLabel" %> <br \></h5>
@@ -7,7 +7,11 @@
     <h5><%= q.label "Option Two", class: "label label-warning questionLabel" %> <br \></h5>
     <%= q.text_field :optionTwo, class: "questionField", id: "optionTwoField" %> <br \>
     <h5><%= q.label "Posted by", class: "label label-warning questionLabel" %> <br \></h5>
-    <%= q.text_field :postedBy, class: "questionField" %> <br \>
+    <% if current_user.class != NilClass %>
+      <%= q.text_field :postedBy, class: "questionField", :value => "#{current_user.email}" %> <br \>
+    <% else %>
+      <%= q.text_field :postedBy, class: "questionField", :value => "Anonymous" %> <br \>
+    <%end%>
     <%= q.submit "Add Question", class: "btn btn-lg btn-success questionButton" %>
   <%end%>
 </div>
