@@ -1,10 +1,12 @@
 
-<div class="col-xs-6 col-xs-offset-3">
+<div class="col-xs-10 col-xs-offset-1">
   <%= form_for @question do |q| %>
     <h5><%= q.label "Question One", class: "label label-warning questionLabel" %> <br \></h5>
-    <%= q.text_field :questionOne, class: "questionField" %> <br \>
+    <%= q.text_field :questionOne, class: "questionField", id: "questionFieldOne" %> <br \>
     <h5><%= q.label "Question Two", class: "label label-warning questionLabel" %> <br \></h5>
-    <%= q.text_field :questionTwo, class: "questionField" %> <br \>
+    <%= q.text_field :questionTwo, class: "questionField", id: "questionFieldTwo" %> <br \>
+    <h5><%= q.label "Posted by", class: "label label-warning questionLabel" %> <br \></h5>
+    <%= q.text_field :postedBy, class: "questionField" %> <br \>
     <%= q.submit "Add Question", class: "btn btn-lg btn-success questionButton" %>
   <%end%>
 </div>

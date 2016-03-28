@@ -1,1 +1,10 @@
-<h1>Frontend</h1>
+<div class="col-xs-8 col-xs-offset-4">
+  <h1>Would you rather?</h1>
+</div>
+
+<% @questions.each do |q| %>
+  <div class="col-xs-6 col-xs-offset-3">
+    <p><%= q.questionOne %></p>
+    <p><%= q.questionTwo %></p>
+  </div>
+<%end%>
