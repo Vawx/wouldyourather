@@ -4,10 +4,12 @@ describe 'the user route to create a question' do
   it 'allows the user to create a question' do
     visit root_path
     click_link 'Add A Rather'
-    fill_in 'questionFieldOne', with: "This is question ONE"
-    fill_in 'questionFieldTwo', with: "This is question TWO"
+    fill_in 'questionField', with: "Would You Rather?"
+    fill_in 'optionOneField', with: "Yes"
+    fill_in 'optionTwoField', with: "No"
     click_button 'Add Question'
-    expect(page).to have_content "This is question ONE"
-    expect(page).to have_content "This is question TWO"
+    expect(page).to have_content "Would You Rather?"
+    expect(page).to have_content "Yes"
+    expect(page).to have_content "No"
   end
 end

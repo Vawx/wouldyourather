@@ -2,8 +2,9 @@ include ActionDispatch::TestProcess
 
 FactoryGirl.define do
   factory :question do
-    questionOne "Yes"
-    questionTwo "Two"
+    question "Would you rather?"
+    optionOne "Yes"
+    optionTwo "Two"
     postedBy = "FactoryGirl"
   end
 end
