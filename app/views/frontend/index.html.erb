@@ -3,8 +3,12 @@
 </div>
 
 <% @questions.each do |q| %>
-  <div class="col-xs-6 col-xs-offset-3">
-    <p><%= q.questionOne %></p>
-    <p><%= q.questionTwo %></p>
+  <div class="row">
+    <div class="col-xs-5 col-xs-offset-1 questionLeft">
+      <p><%= q.questionOne %></p>
+    </div>
+    <div class="col-xs-5 questionRight">
+      <p><%= q.questionTwo %></p>
+    </div>
   </div>
 <%end%>
