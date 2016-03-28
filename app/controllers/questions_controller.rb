@@ -1,4 +1,8 @@
 class QuestionsController < ApplicationController
+  define_method :index do
+      @questions = Question.all
+  end
+
   define_method :new do
     @question = Question.new
   end
