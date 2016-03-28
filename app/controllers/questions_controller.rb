@@ -14,6 +14,6 @@ class QuestionsController < ApplicationController
 
   private
   define_method :question_params do
-    params.require(:question).permit(:questionOne, :questionTwo, :postedBy)
+    params.require(:question).permit(:optionOne, :optionTwo, :question, :postedBy)
   end
 end

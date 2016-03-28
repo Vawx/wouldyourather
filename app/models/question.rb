@@ -1,4 +1,5 @@
 class Question < ActiveRecord::Base
-  validates :questionOne, presence: true
-  validates :questionTwo, presence: true
+  validates :optionOne, presence: true
+  validates :optionTwo, presence: true
+  validates :question, presence: true
 end
