@@ -9,20 +9,24 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
+gem 'devise'
 
 group :development do
-  gem 'byebug'
   gem 'web-console'
   gem 'spring'
   gem 'quiet_assets'
 end
 
 group :test, :development do
+  gem 'byebug'
   gem 'rspec-rails'
   gem 'launchy'
   gem 'pry'
+  gem 'capybara'
 end
 
 group :test do
   gem 'shoulda-matchers'
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'simplecov', :require => false
 end

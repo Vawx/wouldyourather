@@ -1,0 +1,17 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/Guest/Desktop/wouldyourather/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Guest/Desktop/wouldyourather/app/models/question.rb": [
+        1,
+        1,
+        1,
+        null
+      ]
+    },
+    "timestamp": 1459180149
+  }
+}
