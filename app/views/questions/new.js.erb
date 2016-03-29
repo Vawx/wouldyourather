@@ -1,1 +1,7 @@
-$('#newQuestion').hide().after('<%= j render("form") %>');
+$('#addARather').hide().after('<%= j render("form") %>');
+
+$().ready( function( ) {
+  $('.questionButton').on('click', function( ) {
+    $('#addARather').hide();
+  });
+});

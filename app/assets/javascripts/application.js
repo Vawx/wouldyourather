@@ -15,3 +15,16 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+
+$().ready(function(){
+  $('#closeform').on('click', function() {
+    $('#questionForm').hide( );
+  });
+
+  $("#pieChart").highcharts( ) {
+    chart: {
+      backgroundColor: '#000000',
+      type: 'line'
+    }
+  }
+});

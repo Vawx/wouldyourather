@@ -1,4 +1,5 @@
-<div class="col-xs-10 col-xs-offset-1">
+<div class="col-xs-10 col-xs-offset-1" id="questionForm">
+  <a href="" id="closeform" class="btn btn-danger">X</a>
   <%= form_for @question, remote: true do |q| %>
     <h5><%= q.label "Question", class: "label label-warning questionLabel" %> <br \></h5>
     <%= q.text_field :question, class: "questionField", id: "questionField" %> <br \>
