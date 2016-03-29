@@ -19,6 +19,10 @@ class QuestionsController < ApplicationController
   end
 
   define_method :edit do
+    if current_user.class == NilClass
+      redirect_to new_user_registration_path
+      return
+    end
     @question = Question.find( params[:id] )
     currentVotes = 0
     if params[:format] == "1"

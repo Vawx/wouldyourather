@@ -21,13 +21,16 @@ $brand-info:            #9933CC !default;
 $brand-warning:         #FF8800 !default;
 $brand-danger:          #CC0000 !default;
 
+$left-vote:             #7CB5EC;
+$right-vote:            #434348;
+
 
 //== Scaffolding
 //
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-$body-bg:               #060606 !default;
+$body-bg:               white !default;
 //** Global text color on `<body>`.
 $text-color:            $gray-light !default;
 

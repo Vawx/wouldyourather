@@ -20,6 +20,7 @@
 @import "bootswatch"
 
 @import url(https://fonts.googleapis.com/css?family=Montserrat)
+@import url(https://fonts.googleapis.com/css?family=Changa+One)
 
 hr
   border-top: 1px solid rgb(200,200,200)
@@ -27,7 +28,17 @@ hr
 .votes
   font-family: 'Montserrat', sans-serif
   font-size: 42px
-  color: white
+  color: black
+
+.btn-success
+  background-color: $left-vote
+  border-color: black
+  border-width: 2px
+
+.btn-success:hover
+  background-color: $right-vote
+  border-color: black
+  border-width: 2px
 
 .questionField
   width: 100%
@@ -45,8 +56,15 @@ hr
 .questionButton
   margin-top: 4px
 
+.navbar-brand
+  color: black
+  background-color: black
+
+.navbar-default
+  background-color: black
+
 .questionLeft
-  background-color: $brand-warning
+  background-color: $left-vote
   color: white
   font-size: 42px
   text-align: center
@@ -54,8 +72,12 @@ hr
   padding-top: 64px
   padding-bottom: 64px
 
+a:hover
+  text-decoration: none
+  color: white
+
 .questionRight
-  background-color: $brand-info
+  background-color: $right-vote
   color: white
   font-size: 42px
   text-align: center
@@ -70,4 +92,5 @@ hr
   background-color: $brand-danger
 
 h1
-  font-family: 'Montserrat', sans-serif
+  font-family: 'Changa One', sans-serif
+  color: black

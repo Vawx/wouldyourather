@@ -1,11 +1,12 @@
 <%= javascript_include_tag "/assests/javascripts/highcharts.js", "chartkick" %>
 
-<div class="col-xs-11 col-xs-offset-1">
-  <%= link_to "Add a Rather", new_question_path, id: "addARather", class: "btn btn-success addARather newQuestion", remote: true %>
-</div>
+<% if user_signed_in? %>
+  <div class="col-xs-11 col-xs-offset-1">
+    <%= link_to "Add a Rather", new_question_path, id: "addARather", class: "btn btn-success addARather newQuestion", remote: true %>
+  </div>
+<%end%>
 
 <div class="col-xs-12">
-  <h1 style="text-align:center;">Would you rather?</h1>
   <hr>
 </div>
 
@@ -15,18 +16,20 @@
       <h3 style="text-align:center;"><%= q.question %></h3>
     </div>
     <div class="col-xs-4 col-xs-offset-1 votes">
-      <%= q.questionOneVotes.to_s %>
+      <%= q.questionOneVotes.to_s + "(" + percent_of_vote( q.questionOneVotes, q.questionTwoVotes )[0].to_s + "%)"%>
     </div>
-    <div class="col-xs-4 col-xs-offset-2 votes">
-      <%= q.questionTwoVotes.to_s %>
+    <div class="col-xs-4 col-xs-offset-3 votes">
+      <%= q.questionTwoVotes.to_s + "(" + percent_of_vote( q.questionOneVotes, q.questionTwoVotes )[1].to_s + "%)"%>
     </div>
-    <%= link_to q.optionOne, edit_question_path( q, "1" ), class: "col-xs-4 col-xs-offset-1 questionLeft" %>
-    <div class="col-xs-2">
+    <%= link_to q.optionOne, edit_question_path( q, "1" ), class: "col-xs-3 col-xs-offset-1 questionLeft" %>
+    <div class="col-xs-4">
       <%= pie_chart( {q.optionOne => q.questionOneVotes, q.optionTwo => q.questionTwoVotes},{ backgroundColor: '#000000' })%>
     </div>
-    <%= link_to q.optionTwo, edit_question_path( q, "2" ), class: "col-xs-4 questionRight" %>
+    <%= link_to q.optionTwo, edit_question_path( q, "2" ), class: "col-xs-3 questionRight" %>
+    <hr>
     <div class="col-xs-1 col-xs-offset-10">
       <p>By: <%= q.postedBy %></p>
     </div>
   </div>
+  <hr>
 <%end%>
