@@ -11,11 +11,11 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
     @question.questionOneVotes = 0
     @question.questionTwoVotes = 0
-    if @question.save
-      redirect_to root_path
-    else
+    if !@question.save
       render :new
+      return
     end
+    redirect_to root_path
   end
 
   define_method :edit do
@@ -24,19 +24,28 @@ class QuestionsController < ApplicationController
       return
     end
     @question = Question.find( params[:id] )
-    currentVotes = 0
-    if params[:format] == "1"
-      currentVotes = ( @question.questionOneVotes.class == NilClass ) ? 1 : @question.questionOneVotes
-      if @question.update(:questionOneVotes => currentVotes + 1 )
-
-      end
-    elsif params[:format] == "2"
-      currentVotes = ( @question.questionTwoVotes.class == NilClass ) ? 1 : @question.questionTwoVotes
-      if @question.update(:questionTwoVotes => currentVotes + 1 )
-
+    userQuestions = current_user.questions
+    foundQuestion = false
+    userQuestions.each do |q|
+      if q == @question
+        foundQuestion = true
       end
     end
-    redirect_to questions_path
+
+    if !foundQuestion
+      current_user.questions << @question
+      currentVotes = 0
+      if params[:format] == "1"
+        currentVotes = ( @question.questionOneVotes.class == NilClass ) ? 1 : @question.questionOneVotes
+        if @question.update(:questionOneVotes => currentVotes + 1 )
+        end
+      elsif params[:format] == "2"
+        currentVotes = ( @question.questionTwoVotes.class == NilClass ) ? 1 : @question.questionTwoVotes
+        if @question.update(:questionTwoVotes => currentVotes + 1 )
+        end
+      end
+    end
+    redirect_to root_path
   end
 
   private

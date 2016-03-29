@@ -10,7 +10,7 @@ describe 'the user route to create a question' do
     fill_in 'firstPassword', with: user.password
     fill_in 'secondPassword', with: user.password
     click_button 'signUp'
-    click_link 'addARather'
+    visit new_question_path
     fill_in 'questionField', with: "Would You Rather?"
     fill_in 'optionOneField', with: "Yes"
     fill_in 'optionTwoField', with: "No"
